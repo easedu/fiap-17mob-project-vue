@@ -6,12 +6,109 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>fiap-17mob-project-vue</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
   </head>
   <body>
     <noscript>
       <strong>We're sorry but fiap-17mob-project-vue doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app">
+      <div id="loading-wrapper">
+        <div id="splash-img"><img src="./img/splash/logo.png"/></div>
+      </div>
+    </div>
     <!-- built files will be auto injected -->
+
+    <style>
+      #loading-wrapper {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: #f44336;
+      }
+      #splash-img {
+        display: block;
+        position: absolute;
+        top: 37%;
+        left: 37%;
+        color: rgb(20, 121, 60);
+        width: 100px;
+        height: 30px;
+        margin: -7px 0 0 -45px;
+        text-align: center;
+        font-family: 'PT Sans Narrow', sans-serif;
+        font-size: 20px;
+        
+      }
+
+      #splash-img img {
+        -webkit-animation: loader 2s line infinite;
+        -moz-animation: loader 2s linear infinite;
+        -o-animation: loader 2s linear infinite;
+        animation: loader 2s linear infinite;
+      }
+
+  
+      @keyframes loader {
+        0% {
+          -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        10% {
+          -webkit-transform: rotate(36deg);
+          -ms-transform: rotate(36deg);
+          transform: rotate(36deg)
+        }
+        20% {
+          -webkit-transform: rotate(72deg);
+          -ms-transform: rotate(72deg);
+          transform: rotate(72deg)
+        }
+        30% {
+          -webkit-transform: rotate(108deg);
+          -ms-transform: rotate(108deg);
+          transform: rotate(108deg)
+        }
+        40% {
+          -webkit-transform: rotate(144deg);
+          -ms-transform: rotate(144deg);
+          transform: rotate(144deg)
+        }
+        50% {
+          -webkit-transform: rotate(180deg);
+          -ms-transform: rotate(180deg);
+          transform: rotate(180deg)
+        }
+        60% {
+          -webkit-transform: rotate(216deg);
+          -ms-transform: rotate(216deg);
+          transform: rotate(216deg)
+        }
+        70% {
+          -webkit-transform: rotate(252deg);
+          -ms-transform: rotate(252deg);
+          transform: rotate(252deg)
+        }
+        80% {
+          -webkit-transform: rotate(288deg);
+          -ms-transform: rotate(288deg);
+          transform: rotate(288deg)
+        }
+        90% {
+          -webkit-transform: rotate(324deg);
+          -ms-transform: rotate(324deg);
+          transform: rotate(324deg)
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </body>
 </html>

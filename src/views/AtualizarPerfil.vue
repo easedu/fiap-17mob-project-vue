@@ -1,13 +1,23 @@
 <template>
-  <div class="sign-up">
-    <p>Atualize seu nome completo</p>
-    <input type="text" v-model="displayName" placeholder="Nome de usuário">
-    <br>
-    <button @click="updateProfileUser">Atualizar Perfil</button>
-    <br>
-    <br>
-    <button @click="backToHome">Voltar</button>
-  </div>
+   <v-form v-model="valid">
+      <v-container fluid class="pa-1" grid-list-xl>
+       <v-btn @click="backToHome" color="red" flat small dark>Voltar</v-btn>
+        <v-layout  align-center justify-center row > 
+          <h2>Atualização de cadastro</h2>
+        </v-layout>  
+          <v-layout  align-center justify-center row > 
+            <v-flex xs12 sm12 md12 lg12>
+              <v-text-field dark type="text" v-model="displayName" placeholder="Nome Completo" single-line solo ></v-text-field>
+            </v-flex>
+          </v-layout>
+          <v-layout align-center justify-center row>
+            <v-btn @click="updateProfileUser" color="red" dark>Atualizar</v-btn>
+          </v-layout>
+      </v-container>
+   </v-form>
+
+
+  
 </template>
 
  <script>

@@ -1,49 +1,62 @@
 <template>
-  <div class="sign-up">
-    <p>Vamos criar uma nova conta!</p>
-    <input type="text" v-model="email" placeholder="Email">
-    <br>
-    <input type="password" v-model="password" placeholder="Senha">
-    <br>
-    <p>Qual seu endereço?</p>
-    <input type="text" maxlength="8" pattern="([0-9]{8})" v-model="cep" placeholder="CEP">
-    <br>
-    <button @click="buscar">Buscar</button>
-    <br>
-    <br>
-    <br>
-    <label>Logradouro</label>
-    <br>
-    <input type="text" v-model="endereco.logradouro">
-    <br>
-    <label>Número</label>
-    <br>
-    <input type="number" v-model="endereco.numero">
-    <br>
-    <label>Complemento</label>
-    <br>
-    <input type="text" v-model="endereco.complemento">
-    <br>
-    <label>Bairro</label>
-    <br>
-    <input type="text" v-model="endereco.bairro">
-    <br>
-    <label>Cidade</label>
-    <br>
-    <input type="text" v-model="endereco.localidade">
-    <br>
-    <label>Estado</label>
-    <br>
-    <input type="text" v-model="endereco.uf">
-    <br>
 
-    <button @click="signUp">Criar conta</button>
+   <v-form v-model="valid" class="signup">
+      <v-container fluid class="pa-1" grid-list-xl>
+      <v-layout  align-center justify-center row > 
+        <h2>CADASTRO</h2>
+      </v-layout>  
+        <v-layout  align-center justify-center row > 
+        <v-flex xs12 sm12 md12 lg12>
+            <h3>Usuário</h3>
+            <v-text-field dark v-model="email" :rules="emailRules" type="email" label="Digite seu e-mail..." single-line solo ></v-text-field>
+            <h3>Senha</h3>
+            <v-text-field dark v-model="password" :rules="passwordRules" type="password" label="Escolha uma senha..." required single-line solo ></v-text-field>
+          </v-flex>
+        </v-layout>
+         <v-layout align-center justify-center row fill-height>
+          <v-flex xs12 sm12 md12 lg12>
+            <v-layout  align-center justify-center row > 
+              <h2>Preencha seu endereço</h2>
+            </v-layout>
+           </v-flex>        
+        </v-layout>
+        <v-layout align-center justify-center row fill-height>
+          <v-flex xs12 sm12 md12 lg12>
+            <v-text-field dark type="text" maxlength="8" pattern="([0-9]{8})" v-model="cep" label="Digite o CEP de sua residência..." required single-line solo ></v-text-field>
+          <v-layout justify-center>
+            <v-btn @click="buscar" color="red" dark>Encontrar meu endereço</v-btn>
+          </v-layout>
+          </v-flex>
+        </v-layout>
+        <v-layout>
+          <v-flex xs12 sm12 md12 lg12>
+            <h3>Endereço</h3>
+            <v-text-field dark type="text" v-model="endereco.logradouro" single-line solo ></v-text-field>
+            <h3>Número</h3>
+            <v-text-field dark type="number" v-model="endereco.numero" single-line solo ></v-text-field>
+            <h3>Complemento</h3>
+            <v-text-field dark type="text" v-model="endereco.complemento" single-line solo ></v-text-field>
+            <h3>Bairro</h3>
+            <v-text-field dark type="text" v-model="endereco.bairro" solo ></v-text-field>
+            <h3>Cidade</h3>
+            <v-text-field dark type="text" v-model="endereco.localidade" single-line solo ></v-text-field>
+            <h3>Estado</h3>
+            <v-text-field dark type="text" v-model="endereco.uf" single-line solo ></v-text-field>
+          </v-flex>        
+        </v-layout>
+        <v-layout align-center justify-center row fill-height>
+          <v-btn @click="signUp" color="red" dark>Cadastrar Usuário</v-btn>
+        </v-layout>
+        <br>
+        <hr>
+        <br>
+        <v-layout align-center justify-center row fill-height>
+          <p><router-link to="/login">Voltar para Login</router-link></p>
+        </v-layout>
+      </v-container>
+    </v-form>
 
-    <span>
-      ou voltar para
-      <router-link to="/login">Login</router-link>.
-    </span>
-  </div>
+  
 </template>
 
  <script>
@@ -152,27 +165,22 @@ export default {
 </script>
 
  <style scoped>
-.sign-up {
-  margin-top: 40px;
+.signup {
+  width: 100%;
 }
-input {
-  margin: 10px 0;
-  width: 20%;
-  padding: 15px;
+
+h2 {
+  text-transform: uppercase;
 }
-button {
-  margin-top: 10px;
-  width: 10%;
-  cursor: pointer;
+
+p {
+  text-transform: uppercase;
+  font-weight: bold;
 }
-span {
-  display: block;
-  margin-top: 20px;
-  font-size: 11px;
-}
-.text-danger {
-  position: absolute;
-  top: 20px;
-  font-size: 12px;
+
+p a {
+  text-decoration: none;
+  font-size: 17px;
+  color: #f44336;
 }
 </style>

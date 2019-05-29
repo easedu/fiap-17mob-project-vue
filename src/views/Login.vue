@@ -1,12 +1,33 @@
 <template>
-  <div class="login">
-    <h3>Login</h3>
-    <input type="text" v-model="email" placeholder="Email"><br>
-    <input type="password" v-model="password" placeholder="Senha"><br>
-    <button @click="login">Login</button>
-    <p>Ainda não tem uma conta? Você pode <router-link to="/sign-up">criar uma aqui!</router-link></p>
-  </div>
+  
+    <v-form v-model="valid" class="login">
+      <v-container fluid class="pa-0" grid-list-xl >
+        <v-layout  align-center justify-center row >
+        <v-flex xs12 sm12 md12 lg12>
+            <v-text-field dark v-model="email" :rules="emailRules" type="email" label="E-mail do usuário" single-line solo ></v-text-field>
+          </v-flex>
+        </v-layout>
+        <v-layout>
+          <v-flex xs12 sm12 md12 lg12>
+            <v-text-field dark v-model="password" :rules="passwordRules" type="password" label="Senha de acesso" required single-line solo ></v-text-field>
+          </v-flex>        
+        </v-layout>
+        <v-layout justify-center>
+          <v-btn @click="login" color="red" dark>Entrar</v-btn>
+        </v-layout>
+        <br>
+        <hr>
+        <br>
+        <v-layout justify-center>
+          <p>Novo por aqui? <router-link to="/sign-up">Crie sua conta!</router-link></p>
+        </v-layout>
+      </v-container>
+    </v-form>
+  
 </template>
+
+
+<!-- Firebase Auth -->
 
 <script>
   import firebase from 'firebase';
@@ -33,26 +54,23 @@
   }
 </script>
 
-<style scoped>  /* "scoped" attribute limit the CSS to this component only */
+
+
+<style scoped>  
   .login {
-    margin-top: 40px;
+    margin-top: 40%;
+    width: 100%;
   }
-  input {
-    margin: 10px 0;
-    width: 20%;
-    padding: 15px;
+
+  p{
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
   }
-  button {
-    margin-top: 20px;
-    width: 10%;
-    cursor: pointer;
-  }
-  p {
-    margin-top: 40px;
-    font-size: 13px;
-  }
+  
   p a {
     text-decoration: underline;
     cursor: pointer;
+    color: #f44336;
   }
 </style>
